@@ -1,0 +1,44 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/blue</item>
+        <item name="android:statusBarColor">@color/white</item>
+        <item name="android:windowLightStatusBar">true</item> <!--https://stackoverflow.com/a/49255140-->
+    </style>
+
+    <style name="SplashScreen" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowFullscreen">true</item>
+        <item name="colorAccent">@color/blue</item>
+
+    </style>
+
+    <style name="Home" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:statusBarColor">@android:color/white</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="colorAccent">@color/blue</item>
+
+    </style>
+
+    <style name="tabLayout" parent="@android:style/TextAppearance.Widget.TabWidget">
+        <item name="android:textSize">@dimen/default_medium_size</item>
+        <item name="android:fontFamily">@font/ubuntu_bold</item>
+        <item name="colorAccent">@color/blue</item>
+
+    </style>
+
+    <style name="spinner_style">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:padding">@dimen/credentials_padding</item>
+        <item name="android:layout_marginTop">10dp</item>
+        <item name="android:textSize">@dimen/default_medium_size</item>
+        <item name="android:popupBackground">#DFFFFFFF</item>
+        <item name="colorAccent">@color/blue</item>
+    </style>
+
+</resources>

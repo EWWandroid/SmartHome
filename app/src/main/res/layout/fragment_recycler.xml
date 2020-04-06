@@ -1,0 +1,9 @@
+<androidx.recyclerview.widget.RecyclerView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rv_fragment"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/light_grey"
+    android:paddingStart="@dimen/card_padding_horizontal"
+    android:paddingTop="@dimen/card_padding_vertical"
+    android:paddingEnd="@dimen/card_padding_horizontal"
+    android:paddingBottom="@dimen/card_padding_vertical" />

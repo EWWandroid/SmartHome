@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#6200EE</color>
+    <color name="colorPrimaryDark">#3700B3</color>
+    <color name="colorAccent">#03DAC5</color>
+
+    <!--test colors-->
+    <color name="testblue">#0080FF</color>
+    <color name="testred">#FF0000</color>
+    <color name="testgreen">#26BA0F</color>
+
+
+    <!--splash screen-->
+    <color name="start_light_blue">#0080FF</color>
+    <color name="center_light_blue">#0080FF</color>
+    <color name="end_light_blue">#0f52ba</color>
+
+    <color name="default_font_black">#000000</color>
+    
+    <!--Random-->
+    <color name="white">#FFFFFF</color>
+    <color name="blue">#1E88E5</color>
+    <color name="black">#000000</color>
+    <color name="orange">#FF6F00</color>
+    <color name="light_pink">#B71C1C</color>
+    <color name="light_grey">#f6f8fa</color>
+    <color name="light_grey_1">#7A8187</color>
+    <color name="light_grey_2">#ccced0</color>
+    <color name="green">#9CCC65</color>
+    //#3659F4
+</resources>

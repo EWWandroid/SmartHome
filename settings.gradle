@@ -1,0 +1,2 @@
+rootProject.name='SmartOffice'
+include ':app'

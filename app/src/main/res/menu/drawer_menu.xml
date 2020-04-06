@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/ib_nav_home"
+            android:title=""
+            android:icon="@drawable/drawer_menu_home"/>
+        <item
+            android:id="@+id/ib_nav_addrooms"
+            android:title=""
+            android:icon="@drawable/drawer_menu_home" />
+        <item
+            android:id="@+id/ib_nav_newswitch"
+            android:title=""
+            android:icon="@drawable/drawer_menu_home" />
+        <item
+            android:id="@+id/ib_nav_devices"
+            android:title=""
+            android:icon="@drawable/drawer_menu_home" />
+        <item
+            android:id="@+id/ib_nav_addnewdevice"
+            android:title=""
+            android:icon="@drawable/drawer_menu_home" />
+
+    </group>
+
+</menu>

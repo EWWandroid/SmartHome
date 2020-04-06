@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="splash_app_name_20sp">20sp</dimen>
+    <dimen name="_20dp">20dp</dimen>
+    <dimen name="_18dp">18dp</dimen>
+    <dimen name="_16dp">16dp</dimen>
+    <dimen name="_24sp">24sp</dimen>
+    <dimen name="_20sp">20sp</dimen>
+
+    <dimen name="default_large_size">26sp</dimen>
+    <dimen name="default_medium_size">22sp</dimen>
+    <dimen name="default_small_size">18sp</dimen>
+
+    <dimen name="credentials_padding">14dp</dimen>
+    <dimen name="credentials_margin_top">52dp</dimen>
+    <dimen name="credentials_field_margin_top">16dp</dimen>
+    <dimen name="title_margin_top">65dp</dimen>
+    <dimen name="default_content_padding">12dp</dimen>
+    <dimen name="fab_margin_end">12dp</dimen>
+    <dimen name="fab_margin_bottom">24dp</dimen>
+    <dimen name="fragment_container_top_margin">14dp</dimen>
+    <dimen name="field_top_margin">10dp</dimen>
+    <dimen name="spinner_height">50dp</dimen>
+    <dimen name="custom_toolbar_height">80dp</dimen>
+    <dimen name="card_padding_vertical">12dp</dimen>
+    <dimen name="card_padding_horizontal">6dp</dimen>
+    <dimen name="cardview_corner_radius">20dp</dimen>
+    <dimen name="cardview_width">150dp</dimen>
+    <dimen name="cardview_height">180dp</dimen>
+
+
+    <!--navigation view-->
+    <dimen name="nav_icon_height">45dp</dimen>
+    <dimen name="nav_icon_width">45dp</dimen>
+    <dimen name="nav_icon_top_margin">18dp</dimen>
+</resources>
