@@ -36,7 +36,8 @@
                 android:layout_height="@dimen/_16dp"
                 android:layout_marginEnd="4dp"
                 android:background="?attr/selectableItemBackgroundBorderless"
-                android:src="@drawable/ic_edit_blackdp"
+                android:src="@drawable/ic_edit"
+                android:scaleType="fitXY"
                 app:layout_constraintBottom_toBottomOf="@+id/tv_recyclerdevice_pin"
                 app:layout_constraintEnd_toStartOf="@+id/iv_recyclerdevice_status"
                 app:layout_constraintTop_toTopOf="@+id/tv_recyclerdevice_pin" />
@@ -45,7 +46,7 @@
                 android:id="@+id/iv_recyclerdevice_status"
                 android:layout_width="@dimen/_18dp"
                 android:layout_height="@dimen/_18dp"
-                android:src="@drawable/ic_fiber_manual_record_black_24dp"
+                android:src="@drawable/ic_active_indicator"
                 android:tint="@color/green"
                 app:layout_constraintBottom_toBottomOf="@+id/tv_recyclerdevice_pin"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -63,9 +64,9 @@
 
             <ImageView
                 android:id="@+id/tv_recyclerdevice_wifi"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/ic_router_black_24dp"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/ic_wifi"
                 app:layout_constraintBottom_toBottomOf="@+id/tv_recyclerdevice_name"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/tv_recyclerdevice_name" />

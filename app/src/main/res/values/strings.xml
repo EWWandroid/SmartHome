@@ -48,4 +48,12 @@
     <string name="developing_area">Developing Area</string>
     <string name="conference_area">Conference Area</string>
 
+    <!--errors-->
+    <string name="internet_not_available">Internet not available</string>
+    <string name="field_cannot_be_empty">Field cannot be empty</string>
+    <string name="pass_length_error">Password has to be more than 4 characters</string>
+    <string name="email_not_valid">Email not valid</string>
+
+
+
 </resources>

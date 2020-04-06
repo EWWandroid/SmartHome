@@ -30,7 +30,7 @@
 
 
     <!--navigation view-->
-    <dimen name="nav_icon_height">45dp</dimen>
-    <dimen name="nav_icon_width">45dp</dimen>
+    <dimen name="nav_icon_height">28dp</dimen>
+    <dimen name="nav_icon_width">24dp</dimen>
     <dimen name="nav_icon_top_margin">18dp</dimen>
 </resources>

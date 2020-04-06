@@ -5,7 +5,6 @@
     android:layout_height="wrap_content"
     android:layout_margin="15dp">
 
-    <!--app:cardBackgroundColor="#177de1"-->
     <androidx.cardview.widget.CardView
         android:layout_width="150dp"
         android:layout_height="180dp"
@@ -42,7 +41,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="15dp"
                     android:layout_weight="1"
-                    android:src="@drawable/fan" />
+                    android:src="@drawable/ic_fan" />
 
                 <TextView
                     android:id="@+id/tv_recyclerswitch_switchtype"

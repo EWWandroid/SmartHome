@@ -69,7 +69,7 @@ public class NewSwitchFragment extends Fragment implements Constants {
         });
 
         String[] pinList = {"1", "2", "3", "4", "5", "6", "7", "8"};
-        String[] typeList = {"light", "fan", "plug"};
+        String[] typeList = {"light", "ic_fan", "plug"};
 
         ArrayAdapter spinnerPin = new ArrayAdapter(context, R.layout.support_simple_spinner_dropdown_item, pinList);
         ArrayAdapter spinnerType = new ArrayAdapter(context, R.layout.support_simple_spinner_dropdown_item, typeList);
