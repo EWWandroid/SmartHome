@@ -1,4 +1,4 @@
-package com.app.smarthome.model;
+package com.app.smarthome.retrofit.model.main;
 
 public class ModelSpinnerDevice {
 

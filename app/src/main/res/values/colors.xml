@@ -27,5 +27,6 @@
     <color name="light_grey_1">#7A8187</color>
     <color name="light_grey_2">#ccced0</color>
     <color name="green">#9CCC65</color>
+    <color name="red">#F44336</color>
     //#3659F4
 </resources>

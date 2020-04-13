@@ -2,10 +2,20 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cl_addnewdevice_root"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/light_grey">
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/custom_toolbar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_addnewdevicefrag_root"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginTop="@dimen/fragment_container_top_margin"
@@ -14,10 +24,10 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/toolbar">
 
         <EditText
-            android:id="@+id/et_addnewdevice_add"
+            android:id="@+id/et_addnewdevice_name"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:background="@drawable/field_all_rounded"
@@ -26,7 +36,7 @@
             android:fontFamily="@font/ubuntu_regular"
             android:hint="@string/device_name"
             android:inputType="text"
-            android:padding="20dp"
+            android:padding="@dimen/edittext_padding"
             android:textSize="@dimen/default_medium_size"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -44,22 +54,23 @@
             android:fontFamily="@font/ubuntu_regular"
             android:hint="@string/code"
             android:inputType="text"
-            android:padding="20dp"
+            android:padding="@dimen/edittext_padding"
             android:textSize="@dimen/default_medium_size"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/et_addnewdevice_add" />
+            app:layout_constraintTop_toBottomOf="@+id/et_addnewdevice_name" />
 
         <EditText
             android:id="@+id/et_addnewdevice_mac"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/field_top_margin"            android:background="@drawable/field_all_rounded"
+            android:layout_marginTop="@dimen/field_top_margin"
+            android:background="@drawable/field_all_rounded"
             android:elevation="1dp"
             android:ems="10"
             android:fontFamily="@font/ubuntu_regular"
             android:hint="@string/mac"
-            android:padding="20dp"
+            android:padding="@dimen/edittext_padding"
             android:textSize="@dimen/default_medium_size"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -77,6 +88,8 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+        <!---->
+
         <TextView
             android:id="@+id/tv_addnewdevice_scan"
             android:layout_width="wrap_content"
@@ -90,6 +103,7 @@
             app:layout_constraintTop_toBottomOf="@+id/tv_addnewdevice_or" />
 
         <ImageView
+            android:id="@+id/iv_addnewdevice_scannow"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
@@ -98,6 +112,13 @@
             app:layout_constraintEnd_toEndOf="@id/tv_addnewdevice_or"
             app:layout_constraintStart_toStartOf="@+id/tv_addnewdevice_or"
             app:layout_constraintTop_toBottomOf="@+id/tv_addnewdevice_scan" />
+
+        <include
+            layout="@layout/indeterminant_progress_bar"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

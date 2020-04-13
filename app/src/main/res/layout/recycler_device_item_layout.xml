@@ -47,7 +47,6 @@
                 android:layout_width="@dimen/_18dp"
                 android:layout_height="@dimen/_18dp"
                 android:src="@drawable/ic_active_indicator"
-                android:tint="@color/green"
                 app:layout_constraintBottom_toBottomOf="@+id/tv_recyclerdevice_pin"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/tv_recyclerdevice_pin" />
@@ -59,17 +58,18 @@
                 android:fontFamily="@font/ubuntu_bold"
                 android:text="@string/device_name"
                 android:textColor="@color/black"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
+                app:layout_constraintBottom_toBottomOf="@+id/tv_recyclerdevice_wifi"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/tv_recyclerdevice_wifi" />
 
             <ImageView
                 android:id="@+id/tv_recyclerdevice_wifi"
                 android:layout_width="20dp"
                 android:layout_height="20dp"
+                android:scaleType="fitXY"
                 android:src="@drawable/ic_wifi"
-                app:layout_constraintBottom_toBottomOf="@+id/tv_recyclerdevice_name"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/tv_recyclerdevice_name" />
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

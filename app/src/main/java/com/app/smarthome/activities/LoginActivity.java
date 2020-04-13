@@ -15,7 +15,6 @@ import com.app.smarthome.Session;
 import com.app.smarthome.databinding.ActivityLoginBinding;
 import com.app.smarthome.retrofit.RetrofitClient;
 import com.app.smarthome.retrofit.model.main.ModelLoginResponse;
-import com.app.smarthome.retrofit.model.main.ModelRegisterResponse;
 import com.app.smarthome.util.Constants;
 import com.app.smarthome.util.GlobalMethods;
 import com.google.gson.Gson;
@@ -27,7 +26,7 @@ import retrofit2.Response;
 
 public class LoginActivity extends AppCompatActivity implements Constants {
 
-    private static final String NAME = LoginActivity.class.getSimpleName();
+    private static final String NAME = LoginActivity.class.getSimpleName()+ " ";
     private static final String TAG = COMMON_TAG;
 
     private ActivityLoginBinding loginBinding;
@@ -38,21 +37,16 @@ public class LoginActivity extends AppCompatActivity implements Constants {
     private String emailName;
     ModelLoginResponse loginResponse;
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         loginBinding = ActivityLoginBinding.inflate(getLayoutInflater());
         View view = loginBinding.getRoot();
         setContentView(view);
-
         init();
-
     }
 
     private void init() {
-
         loginBinding.btnLoginSignin.setOnClickListener(v -> {
             if (GlobalMethods.isNetworkAvailable(this)) {
                 if (validateInputsAndShowError()) {
@@ -62,16 +56,13 @@ public class LoginActivity extends AppCompatActivity implements Constants {
                 GlobalMethods.showNetworkErrorSnackBar(loginBinding.clLoginRoot);
             }
         });
-        loginBinding.tvLoginSignup.setOnClickListener(v -> {
-            startActivity(new Intent(LoginActivity.this, RegisterActivity.class));
-        });
+        loginBinding.tvLoginSignup.setOnClickListener(v -> startActivity(new Intent(LoginActivity.this, RegisterActivity.class)));
 
     }
 
-
     private void callEmailRegisterApi() {
         Log.i(TAG, NAME + "callEmailRegisterApi called");
-        GlobalMethods.showProgressBar(loginBinding.pbLogin);
+        GlobalMethods.showProgressBar(loginBinding.pbAll);
         gson = new Gson();
         session = new Session(this);
 
@@ -96,7 +87,6 @@ public class LoginActivity extends AppCompatActivity implements Constants {
                                 storeUserDetail(loginResponse);
                                 goToHomeActivity();
                             } else {
-                                //invalid details
                                 Log.i(TAG, NAME + "onResponse: message is " + loginResponse.getMessage());
                                 Toast.makeText(LoginActivity.this, loginResponse.getMessage(), Toast.LENGTH_SHORT).show();
                             }
@@ -109,7 +99,7 @@ public class LoginActivity extends AppCompatActivity implements Constants {
                     Log.i(TAG, NAME + "onResponse: response code: " + response.code());
                     Toast.makeText(LoginActivity.this, "invalid response code", Toast.LENGTH_SHORT).show();
                 }
-                GlobalMethods.hideProgressBar(loginBinding.pbLogin);
+                GlobalMethods.hideProgressBar(loginBinding.pbAll);
             }
 
             private void goToHomeActivity() {
@@ -118,11 +108,12 @@ public class LoginActivity extends AppCompatActivity implements Constants {
                 startActivity(homeIntent);
             }
 
+
             @Override
             public void onFailure(Call<ResponseBody> call, Throwable t) {
                 Log.i(TAG, NAME + "onFailure called");
                 Toast.makeText(LoginActivity.this, "failure to register user", Toast.LENGTH_SHORT).show();
-                GlobalMethods.hideProgressBar(loginBinding.pbLogin);
+                GlobalMethods.hideProgressBar(loginBinding.pbAll);
             }
         });
     }

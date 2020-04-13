@@ -15,24 +15,20 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.app.smarthome.R;
 import com.app.smarthome.adapter.FragmentRecyclerAdapter;
+import com.app.smarthome.retrofit.model.sub.GroupListData;
 import com.app.smarthome.util.Constants;
 
-public class BossOfficeFragment extends Fragment implements Constants, FragmentRecyclerAdapter.ClickListener {
+public class SwitchesFragment extends Fragment implements Constants, FragmentRecyclerAdapter.ClickListener {
 
-    private static final String NAME = BossOfficeFragment.class.getSimpleName();
+    private static final String NAME = SwitchesFragment.class.getSimpleName()+ " ";
     private static final String TAG = COMMON_TAG;
 
-    RecyclerView rv_fragment;
     private Context context;
+    private GroupListData groupListData;
 
-    public BossOfficeFragment(Context context) {
+    public SwitchesFragment(Context context, GroupListData groupListData) {
         this.context = context;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
+        this.groupListData = groupListData;
     }
 
     @Override
@@ -44,8 +40,9 @@ public class BossOfficeFragment extends Fragment implements Constants, FragmentR
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        rv_fragment = view.findViewById(R.id.rv_fragment);
-        FragmentRecyclerAdapter adapter = new FragmentRecyclerAdapter(context, this, FRAGMENT_HOME);
+        super.onViewCreated(view, savedInstanceState);
+        RecyclerView rv_fragment = view.findViewById(R.id.rv_fragment);
+        FragmentRecyclerAdapter adapter = new FragmentRecyclerAdapter(context, this, groupListData.getSwitches(),FRAGMENT_HOME);
         GridLayoutManager gridLayoutManager = new GridLayoutManager(context, 2);
         rv_fragment.setLayoutManager(gridLayoutManager);
         rv_fragment.setAdapter(adapter);
@@ -55,4 +52,5 @@ public class BossOfficeFragment extends Fragment implements Constants, FragmentR
     public void onClick(int position) {
         Log.i(TAG, NAME + "onClick: " + position);
     }
+
 }

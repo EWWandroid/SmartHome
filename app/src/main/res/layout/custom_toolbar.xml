@@ -15,8 +15,8 @@
 
         <ImageView
             android:id="@+id/iv_tb_start"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="@dimen/toolbar_icon_size"
+            android:layout_height="@dimen/toolbar_icon_size"
             android:src="@drawable/ic_arrow_back_black_24dp"
             app:layout_constraintBottom_toBottomOf="@+id/tv_tb_center"
             app:layout_constraintStart_toStartOf="parent"
@@ -35,15 +35,15 @@
             app:layout_constraintStart_toEndOf="@+id/iv_tb_start"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <com.mikhaellopez.circularimageview.CircularImageView
-            android:id="@+id/civ_tb_end"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_marginEnd="15dp"
-            android:src="@drawable/ic_account_circle_black_24dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+<!--        <com.mikhaellopez.circularimageview.CircularImageView-->
+<!--            android:id="@+id/civ_tb_end"-->
+<!--            android:layout_width="@dimen/toolbar_icon_size"-->
+<!--            android:layout_height="@dimen/toolbar_icon_size"-->
+<!--            android:layout_marginEnd="15dp"-->
+<!--            android:src="@drawable/ic_account_circle_black_24dp"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintTop_toTopOf="parent" />-->
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

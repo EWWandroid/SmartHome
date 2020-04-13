@@ -19,4 +19,22 @@ public interface ApiConstants {
 
     String ENDPOINT_USERS = "users";
 
+    String ENDPOINT_GROUP = "groups";
+    String CREATE_GROUP_PARAM_NAME = "name";
+
+    String ENDPOINT_SWITCH = "switches";
+
+    String ENDPOINT_DEVICES = "devices";
+    String PARAMS_CREATE_DEVICES_NAME = "name";
+    String PARAMS_CREATE_DEVICES_MAC = "mac";
+    String PARAMS_CREATE_DEVICES_UUID = "uuid";
+
+    String ENDPOINT_SEARCH = "search/users";
+    String QUERY_SEARCH_EMAIL = "email";
+
+    String ENDPOINT_INVITATION = "users/invitations";
+
+    String ENDPOINT_INVITED = "users/invited";
+
+
 }

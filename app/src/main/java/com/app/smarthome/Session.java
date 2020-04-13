@@ -10,7 +10,7 @@ import static androidx.preference.PreferenceManager.getDefaultSharedPreferences;
 
 public class Session implements Constants {
 
-    private static final String NAME = Session.class.getSimpleName();
+    private static final String NAME = Session.class.getSimpleName()+ " ";
     private static final String TAG = COMMON_TAG;
 
     private static SharedPreferences sharedPreferences;

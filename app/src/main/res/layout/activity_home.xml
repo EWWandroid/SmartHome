@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/dl_home"
     android:layout_width="match_parent"
@@ -8,29 +9,37 @@
     tools:context="com.app.smarthome.activities.HomeActivity"
     tools:openDrawer="start">
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/light_grey"
-        android:orientation="vertical">
+        android:layout_height="match_parent">
 
-        <include
-            android:id="@+id/toolbar"
-            layout="@layout/custom_toolbar" />
-
-        <FrameLayout
-            android:id="@+id/fl_home"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="@dimen/fragment_container_top_margin" />
+            android:background="@color/light_grey"
+            android:orientation="vertical">
 
-    </LinearLayout>
+            <include
+                android:id="@+id/toolbar"
+                layout="@layout/custom_toolbar" />
+
+            <FrameLayout
+                android:id="@+id/fl_home"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/fragment_container_top_margin" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
 
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/nv_home"
         android:layout_width="115dp"
         android:layout_height="match_parent"
         android:layout_gravity="start"
+        android:fitsSystemWindows="true"
         android:background="@android:color/transparent">
 
         <RelativeLayout
@@ -42,76 +51,104 @@
                 android:layout_height="match_parent"
                 android:background="@drawable/custom_drawer_background"
                 android:orientation="vertical">
-
+                <!---->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="center_horizontal"
-                    android:orientation="vertical"
                     android:layout_marginTop="80dp"
-                    android:layout_weight="1">
+                    android:layout_weight="2"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical">
 
-                    <ImageButton
-                        android:id="@+id/ib_nav_home"
-                        android:layout_width="@dimen/nav_icon_width"
-                        android:layout_height="@dimen/nav_icon_height"
-                        android:background="@android:color/transparent"
-                        android:scaleType="fitXY"
-                        android:src="@drawable/ic_area" />
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
 
-                    <ImageButton
-                        android:id="@+id/ib_nav_addrooms"
-                        android:layout_width="@dimen/nav_icon_width"
-                        android:layout_height="@dimen/nav_icon_height"
-                        android:layout_marginTop="@dimen/nav_icon_top_margin"
-                        android:background="@android:color/transparent"
-                        android:scaleType="fitXY"
-                        android:src="@drawable/home_unselect" />
+                        <ImageButton
+                            android:id="@+id/ib_nav_home"
+                            android:layout_width="42dp"
+                            android:layout_height="32dp"
+                            android:background="@android:color/transparent"
+                            android:scaleType="fitXY"
+                            android:src="@drawable/ic_area"
+                            app:layout_constraintBottom_toTopOf="@+id/ib_nav_people"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_chainStyle="spread" />
 
-                    <ImageButton
-                        android:id="@+id/ib_nav_newswitch"
-                        android:layout_width="@dimen/nav_icon_width"
-                        android:layout_height="@dimen/nav_icon_height"
-                        android:layout_marginTop="@dimen/nav_icon_top_margin"
-                        android:background="@android:color/transparent"
-                        android:scaleType="fitXY"
-                        android:src="@drawable/building_unselect" />
+                        <ImageButton
+                            android:id="@+id/ib_nav_people"
+                            android:layout_width="38dp"
+                            android:layout_height="28dp"
+                            android:layout_marginTop="@dimen/nav_icon_top_margin"
+                            android:background="@android:color/transparent"
+                            android:scaleType="fitXY"
+                            android:src="@drawable/user_unselect"
+                            app:layout_constraintBottom_toTopOf="@+id/ib_nav_adddevice"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/ib_nav_home" />
 
-                    <ImageButton
-                        android:id="@+id/ib_nav_devices"
-                        android:layout_width="@dimen/nav_icon_width"
-                        android:layout_height="@dimen/nav_icon_height"
-                        android:layout_marginTop="@dimen/nav_icon_top_margin"
-                        android:background="@android:color/transparent"
-                        android:scaleType="fitXY"
-                        android:src="@drawable/user_unselect" />
+                        <ImageButton
+                            android:id="@+id/ib_nav_adddevice"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_marginTop="@dimen/nav_icon_top_margin"
+                            android:background="@android:color/transparent"
+                            android:scaleType="fitXY"
+                            android:src="@drawable/home_unselect"
+                            app:layout_constraintBottom_toTopOf="@id/ib_nav_newswitch"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/ib_nav_people" />
 
-                    <ImageButton
-                        android:id="@+id/ib_nav_addnewdevice"
-                        android:layout_width="@dimen/nav_icon_width"
-                        android:layout_height="@dimen/nav_icon_height"
-                        android:layout_marginTop="@dimen/nav_icon_top_margin"
-                        android:background="@android:color/transparent"
-                        android:scaleType="fitXY"
-                        android:src="@drawable/device_unselect" />
+                        <ImageButton
+                            android:id="@+id/ib_nav_newswitch"
+                            android:layout_width="28dp"
+                            android:layout_height="32dp"
+                            android:layout_marginTop="@dimen/nav_icon_top_margin"
+                            android:background="@android:color/transparent"
+                            android:scaleType="fitXY"
+                            android:src="@drawable/building_unselect"
+                            app:layout_constraintBottom_toTopOf="@+id/ib_nav_addnewdevice"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/ib_nav_adddevice" />
 
+
+                        <ImageButton
+                            android:id="@+id/ib_nav_addnewdevice"
+                            android:layout_width="24dp"
+                            android:layout_height="34dp"
+                            android:layout_marginTop="@dimen/nav_icon_top_margin"
+                            android:background="@android:color/transparent"
+                            android:scaleType="fitXY"
+                            android:src="@drawable/device_unselect"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/ib_nav_newswitch" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
 
                 </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="3"
+                    android:layout_weight="2.5"
                     android:gravity="center"
                     android:orientation="vertical">
 
                     <ImageButton
                         android:id="@+id/ib_nav_logout"
-                        android:layout_width="@dimen/nav_icon_width"
-                        android:layout_height="@dimen/nav_icon_height"
+                        android:layout_width="42dp"
+                        android:layout_height="42dp"
                         android:background="@android:color/transparent"
                         android:scaleType="fitXY"
-                        android:src="@drawable/drawer_menu_home" />
+                        android:src="@drawable/ic_exit_to_app_black_24dp"
+                        android:tint="@android:color/white" />
 
                 </LinearLayout>
 
@@ -127,6 +164,7 @@
                 android:background="@drawable/drawer_back_button_background"
                 android:src="@drawable/ic_arrow_back_black_24dp"
                 android:tint="@color/white" />
+
         </RelativeLayout>
 
     </com.google.android.material.navigation.NavigationView>

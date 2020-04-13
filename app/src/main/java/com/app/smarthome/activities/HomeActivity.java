@@ -3,21 +3,27 @@ package com.app.smarthome.activities;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.FragmentTransaction;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
 import com.app.smarthome.R;
+import com.app.smarthome.Session;
+import com.app.smarthome.databinding.CustomToolbarBinding;
 import com.app.smarthome.fragments.DevicesFragment;
 import com.app.smarthome.fragments.HomeFragment;
 import com.app.smarthome.util.Constants;
 import com.app.smarthome.databinding.ActivityHomeBinding;
+import com.app.smarthome.util.GlobalMethods;
 
-public class HomeActivity extends AppCompatActivity implements Constants, View.OnClickListener {
+public class HomeActivity extends AppCompatActivity implements Constants, View.OnClickListener, SetupWifiDialog.DialogListener {
 
-    private static final String NAME = HomeActivity.class.getSimpleName();
+    private static final String NAME = HomeActivity.class.getSimpleName() + " ";
     private static final String TAG = COMMON_TAG;
     private ActivityHomeBinding binding;
 
@@ -28,21 +34,14 @@ public class HomeActivity extends AppCompatActivity implements Constants, View.O
         View view = binding.getRoot();
         setContentView(view);
 
-        setToolBar();
+        GlobalMethods.setToolbar(binding.toolbar, R.string.home, R.drawable.drawer_hamburger);
         setNavigationDrawer();
         onDrawerItemSelected();
 
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction().replace(R.id.fl_home,
                     new HomeFragment(this)).commit();
-            binding.nvHome.setCheckedItem(R.id.ib_nav_home);
         }
-
-    }
-
-    private void setToolBar() {
-        binding.toolbar.ivTbStart.setImageResource(R.drawable.drawer_hamburger);
-        binding.toolbar.tvTbCenter.setText(getString(R.string.home));
     }
 
     private void setNavigationDrawer() {
@@ -52,22 +51,19 @@ public class HomeActivity extends AppCompatActivity implements Constants, View.O
 
         binding.dlHome.setDrawerElevation(0);
         binding.dlHome.addDrawerListener(toggle);
+        binding.dlHome.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
 
-        binding.toolbar.ivTbStart.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                binding.dlHome.openDrawer(GravityCompat.START);
-            }
-        });
+        binding.toolbar.ivTbStart.setOnClickListener(v -> binding.dlHome.openDrawer(GravityCompat.START));
         toggle.syncState();
     }
 
     public void onDrawerItemSelected() {
-        binding.ibNavAddrooms.setOnClickListener(this);
+        binding.ibNavAdddevice.setOnClickListener(this);
         binding.ibNavNewswitch.setOnClickListener(this);
-        binding.ibNavDevices.setOnClickListener(this);
+        binding.ibNavPeople.setOnClickListener(this);
         binding.ibNavAddnewdevice.setOnClickListener(this);
         binding.ibNavLogout.setOnClickListener(this);
+        binding.ibNavBack.setOnClickListener(this);
     }
 
     @Override
@@ -75,37 +71,60 @@ public class HomeActivity extends AppCompatActivity implements Constants, View.O
 
         switch (v.getId()) {
 
-            case R.id.ib_nav_addrooms:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fl_home, new HomeFragment(this)).commit();
-                Toast.makeText(this, "Clicked on: ib_nav_addrooms", Toast.LENGTH_SHORT).show();
+            case R.id.ib_nav_back:
+                Log.i(TAG, NAME + "ib_nav_back: called");
+                binding.dlHome.closeDrawer(GravityCompat.START);
+                break;
+
+            case R.id.ib_nav_home:
+                getSupportFragmentManager().beginTransaction().replace(R.id.fl_home,
+                        new HomeFragment(this)).commit();
+                break;
+
+            case R.id.ib_nav_people:
+                startActivity(new Intent(this, PeopleActivity.class));
+                break;
+
+            case R.id.ib_nav_adddevice:
+                //Screen 6 : Display list of devices + Add new device, scan and Add new device
+                getSupportFragmentManager().beginTransaction().replace(R.id.fl_home, new DevicesFragment(this)).commit();
                 Log.i(TAG, NAME + "onClick: ib_nav_addrooms");
-                binding.nvHome.setCheckedItem(R.id.ib_nav_addrooms);
                 break;
+
             case R.id.ib_nav_newswitch:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fl_home, new DevicesFragment(this)).commit();
-                Toast.makeText(this, "Clicked on: ib_nav_newswitch", Toast.LENGTH_SHORT).show();
-                binding.nvHome.setCheckedItem(R.id.ib_nav_newswitch);
-                Log.i(TAG, NAME + "onClick: ib_nav_newswitch");
+                //Screen 7 : Display list of switches, delete switch,
+                startActivity(new Intent(this, InvitationActivity.class));
                 break;
-            case R.id.ib_nav_devices:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fl_home, new HomeFragment(this)).commit();
-                Toast.makeText(this, "Clicked on: ib_nav_devices", Toast.LENGTH_SHORT).show();
-                binding.nvHome.setCheckedItem(R.id.ib_nav_devices);
-                Log.i(TAG, NAME + "onClick: ib_nav_devices");
-                break;
+
             case R.id.ib_nav_addnewdevice:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fl_home, new DevicesFragment(this)).commit();
-                Toast.makeText(this, "Clicked on: ib_nav_addnewdevice", Toast.LENGTH_SHORT).show();
-                binding.nvHome.setCheckedItem(R.id.ib_nav_addnewdevice);
-                Log.i(TAG, NAME + "onClick: ib_nav_addnewdevice");
+                //Screen 8 : Display list of setting options
+                //getSupportFragmentManager().beginTransaction().replace(R.id.fl_home, new DevicesFragment(this)).commit();
+                //Log.i(TAG, NAME + "onClick: ib_nav_addnewdevice");
+                startActivity(new Intent(this, NewSwitchActivity.class));
                 break;
             case R.id.ib_nav_logout:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fl_home, new HomeFragment(this)).commit();
-                Toast.makeText(this, "Clicked on: ib_nav_logout", Toast.LENGTH_SHORT).show();
-                binding.nvHome.setCheckedItem(R.id.ib_nav_logout);
-                Log.i(TAG, NAME + "onClick: ib_nav_logout");
+                goToLoginActivity();
+//                FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+//                SetupWifiDialog setupWifiDialog = new SetupWifiDialog(this);
+//                Bundle bundle = new Bundle();
+//                bundle.putBoolean("wifiDialog", true);
+//                setupWifiDialog.setArguments(bundle);
+//                setupWifiDialog.show(ft, "dialog");
+//                Log.i(TAG, NAME + "onClick: ib_nav_logout");
                 break;
         }
+
+        if (binding.dlHome.isDrawerOpen(GravityCompat.START)) {
+            binding.dlHome.closeDrawer(GravityCompat.START);
+        }
+    }
+
+    private void goToLoginActivity() {
+        Intent loginIntent = new Intent(this, LoginActivity.class);
+        loginIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        Session session = new Session(this);
+        session.clearData();
+        startActivity(loginIntent);
     }
 
     @Override
@@ -115,5 +134,10 @@ public class HomeActivity extends AppCompatActivity implements Constants, View.O
         } else {
             super.onBackPressed();
         }
+    }
+
+    @Override
+    public void onFinishEditing(String ssid, String password) {
+        Toast.makeText(this, "ssid and password are\n" + ssid + "\n" + password, Toast.LENGTH_SHORT).show();
     }
 }

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,7 +7,7 @@
     tools:context=".activities.SplashActivity">
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/iv_splash_gradient"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@drawable/splash_gradient_blue"
@@ -20,16 +20,16 @@
         android:id="@+id/iv_splash_graphics"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="84dp"
-        android:layout_marginBottom="216dp"
+        android:scaleType="centerCrop"
+        android:layout_marginTop="-250dp"
+        android:layout_marginStart="4dp"
         android:src="@drawable/asset_0"
-        android:tint="@color/black"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        android:tint="@color/black" />
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/iv_splash_logo"
         android:layout_width="wrap_content"
+        android:layout_centerInParent="true"
         android:layout_height="wrap_content"
         android:src="@drawable/splashscreen_logo"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -39,17 +39,18 @@
         app:layout_constraintVertical_bias="0.40" />
 
     <TextView
+        android:layout_below="@+id/iv_splash_logo"
         android:id="@+id/tv_splash_logoname"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
+        android:layout_centerInParent="true"
+        android:fontFamily="@font/ubuntu_medium"
         android:text="@string/splash_app_name"
         android:textColor="@color/white"
         android:textSize="@dimen/splash_app_name_20sp"
-        android:fontFamily="@font/ubuntu_regular"
-        app:layout_constraintEnd_toEndOf="@+id/imageView"
-        app:layout_constraintStart_toStartOf="@+id/imageView"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        app:layout_constraintEnd_toEndOf="@+id/iv_splash_logo"
+        app:layout_constraintStart_toStartOf="@+id/iv_splash_logo"
+        app:layout_constraintTop_toBottomOf="@+id/iv_splash_logo" />
 
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>

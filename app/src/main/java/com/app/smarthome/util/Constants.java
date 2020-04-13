@@ -8,6 +8,8 @@ public interface Constants {
     String SHARED_PREFERENCE_VALUE_ERROR = "error";
     String SHARED_PREFERENCE_KEY_USER_DETAIL = "user detail";
 
+    String ITEM_STATUS = "active";
+
 
 
 }
