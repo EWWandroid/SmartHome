@@ -28,18 +28,18 @@ public class SplashActivity extends AppCompatActivity implements Constants {
 
         Session session = new Session(this);
 
-        new Handler().postDelayed(() -> {
-            boolean isEmailLoggedIn = !session.getData(SHARED_PREFERENCE_KEY_USER_DETAIL).equals(SHARED_PREFERENCE_VALUE_ERROR);
-            Intent intent;
-            if (isEmailLoggedIn) {
-                intent = new Intent(SplashActivity.this, HomeActivity.class);
-                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            new Handler().postDelayed(() -> {
+                boolean isEmailLoggedIn = !session.getData(SHARED_PREFERENCE_KEY_USER_DETAIL).equals(SHARED_PREFERENCE_VALUE_ERROR);
+                Intent intent;
+                if (isEmailLoggedIn) {
+                    intent = new Intent(SplashActivity.this, HomeActivity.class);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
 
-            } else {
-                intent = new Intent(SplashActivity.this, LoginActivity.class);
-                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-            }
-            startActivity(intent);
-        }, SPLASH_TIME);
+                } else {
+                    intent = new Intent(SplashActivity.this, LoginActivity.class);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                }
+                startActivity(intent);
+            }, SPLASH_TIME);
     }
 }

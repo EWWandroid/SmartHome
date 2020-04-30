@@ -40,14 +40,9 @@ public class PeopleActivity extends AppCompatActivity implements Constants {
 
     private static final String NAME = PeopleActivity.class.getSimpleName() + " ";
     private static final String TAG = COMMON_TAG;
-    private boolean IS_ONE_CHARACTER_SEARCHED = false;
 
     private ActivityPeopleBinding peopleBinding;
     private Gson gson;
-    private Session session;
-
-    private List<String> list;
-    private ArrayAdapter<String> arrayAdapter;
     private List<SearchUserData> searchUserDataList;
     private SearchUserAdapter mSearchAdapter;
 
@@ -167,7 +162,7 @@ public class PeopleActivity extends AppCompatActivity implements Constants {
         peopleBinding.svPeople.setSuggestionsClickListener(new SuggestionsAdapter.OnItemViewClickListener() {
             @Override
             public void OnItemClickListener(int position, View v) {
-                Log.i(TAG, NAME + "OnItemClickListener called: clicked on "+  position);
+                Log.i(TAG, NAME + "OnItemClickListener called: clicked on " + position);
             }
 
             @Override
@@ -245,7 +240,6 @@ public class PeopleActivity extends AppCompatActivity implements Constants {
                             Log.i(TAG, NAME + "onResponse: status is=" + searchUserListResponse.getStatus());
                             if (searchUserListResponse.getStatus()) {
                                 searchUserDataList = searchUserListResponse.getData();
-                                //according to this list show suggestions
                             } else {
                                 //invalid details
                                 Toast.makeText(PeopleActivity.this, "status is false", Toast.LENGTH_SHORT).show();

@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/cardview_margin"
+    android:layout_marginEnd="@dimen/cardview_margin"
+    android:layout_marginStart="@dimen/cardview_margin">
 
     <androidx.cardview.widget.CardView
         android:layout_width="@dimen/cardview_width"
@@ -18,7 +20,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:padding="10dp">
+            android:padding="@dimen/_10sdp">
 
             <TextView
                 android:id="@+id/tv_recyclerdevice_pin"
@@ -26,7 +28,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/ubuntu_regular"
                 android:text="@string/pin_6"
-                android:textSize="12sp"
+                android:textSize="@dimen/_12ssp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -34,10 +36,10 @@
                 android:id="@+id/ib_recyclerdevice_edit"
                 android:layout_width="@dimen/_16dp"
                 android:layout_height="@dimen/_16dp"
-                android:layout_marginEnd="4dp"
+                android:layout_marginEnd="@dimen/_4sdp"
                 android:background="?attr/selectableItemBackgroundBorderless"
-                android:src="@drawable/ic_edit"
                 android:scaleType="fitXY"
+                android:src="@drawable/ic_edit"
                 app:layout_constraintBottom_toBottomOf="@+id/tv_recyclerdevice_pin"
                 app:layout_constraintEnd_toStartOf="@+id/iv_recyclerdevice_status"
                 app:layout_constraintTop_toTopOf="@+id/tv_recyclerdevice_pin" />
@@ -64,8 +66,8 @@
 
             <ImageView
                 android:id="@+id/tv_recyclerdevice_wifi"
-                android:layout_width="20dp"
-                android:layout_height="20dp"
+                android:layout_width="@dimen/_20sdp"
+                android:layout_height="@dimen/_20sdp"
                 android:scaleType="fitXY"
                 android:src="@drawable/ic_wifi"
                 app:layout_constraintBottom_toBottomOf="parent"

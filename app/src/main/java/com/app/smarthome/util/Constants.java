@@ -9,6 +9,7 @@ public interface Constants {
     String SHARED_PREFERENCE_KEY_USER_DETAIL = "user detail";
 
     String ITEM_STATUS = "active";
+    String FRAGMENT_SWITCH_INTENT_KEY_SWITCHID = "switchid";
 
 
 

@@ -3,7 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/cl_addnewdevice_root"
+    android:id="@+id/cl_updatedevice_root"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/light_grey">
@@ -90,43 +90,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/et_editandshare_code" />
 
-        <TextView
-            android:id="@+id/tv_addnewdevice_or"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/ubuntu_bold"
-            android:text="@string/or"
-            android:textSize="@dimen/default_large_size"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <!---->
-
-        <TextView
-            android:id="@+id/tv_addnewdevice_scan"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_8sdp"
-            android:fontFamily="@font/ubuntu_regular"
-            android:text="@string/scan_qr_code"
-            android:textSize="@dimen/default_large_size"
-            app:layout_constraintEnd_toEndOf="@+id/tv_addnewdevice_or"
-            app:layout_constraintStart_toStartOf="@+id/tv_addnewdevice_or"
-            app:layout_constraintTop_toBottomOf="@+id/tv_addnewdevice_or" />
-
-        <ImageView
-            android:id="@+id/iv_addnewdevice_scannow"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_24sdp"
-            android:src="@drawable/ic_scan"
-            android:tint="@color/light_grey_1"
-            app:layout_constraintEnd_toEndOf="@id/tv_addnewdevice_or"
-            app:layout_constraintStart_toStartOf="@+id/tv_addnewdevice_or"
-            app:layout_constraintTop_toBottomOf="@+id/tv_addnewdevice_scan" />
-
         <Button
             android:id="@+id/btn_update"
             android:layout_width="@dimen/add_button_width"
@@ -134,15 +97,13 @@
             android:layout_marginTop="@dimen/_8sdp"
             android:background="@drawable/custom_blue_gradient_all_btn"
             android:fontFamily="@font/ubuntu_bold"
-            android:text="@string/create_device"
+            android:text="@string/update_device"
             android:textColor="@color/white"
             android:textSize="@dimen/default_small_size"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/et_editandshare_mac" />
 
-
     </androidx.constraintlayout.widget.ConstraintLayout>
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

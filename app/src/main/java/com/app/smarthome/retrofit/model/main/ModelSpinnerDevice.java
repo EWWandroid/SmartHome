@@ -10,6 +10,10 @@ public class ModelSpinnerDevice {
         this.mac = mac;
     }
 
+    public ModelSpinnerDevice(String ssid) {
+        this.ssid = ssid;
+    }
+
     public String getSsid() {
         return ssid;
     }

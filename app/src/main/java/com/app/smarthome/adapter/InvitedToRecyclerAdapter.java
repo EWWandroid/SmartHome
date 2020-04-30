@@ -12,7 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.app.smarthome.R;
-import com.app.smarthome.retrofit.model.sub.InviteData;
+import com.app.smarthome.retrofit.model.sub.InvitedToOther;
 import com.app.smarthome.retrofit.model.sub.InviteUserData;
 import com.app.smarthome.util.Constants;
 
@@ -24,30 +24,30 @@ public class InvitedToRecyclerAdapter extends RecyclerView.Adapter<InvitedToRecy
     private static final String TAG = COMMON_TAG;
 
     private Context context;
-    private List<InviteData> inviteDataList;
+    private List<InvitedToOther> inviteDataList;
     private OnRecyclerFriendsItemClickListener listener;
 
-    public InvitedToRecyclerAdapter(Context context, List<InviteData> inviteDataList, OnRecyclerFriendsItemClickListener listener) {
+    public InvitedToRecyclerAdapter(Context context, List<InvitedToOther> inviteDataList, OnRecyclerFriendsItemClickListener listener) {
         this.context = context;
         this.inviteDataList = inviteDataList;
         this.listener = listener;
     }
 
     public interface OnRecyclerFriendsItemClickListener {
-        void onRejectClick(InviteData inviteData, int position);
+        void onRejectClick(InvitedToOther inviteData, int position);
     }
 
     @NonNull
     @Override
     public FriendsListItemViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(context);
-        View view = inflater.inflate(R.layout.recycler_invitation_friends_item_layout, parent, false);
+        View view = inflater.inflate(R.layout.recycler_invitation_friends, parent, false);
         return new FriendsListItemViewHolder(view, listener);
     }
 
     @Override
     public void onBindViewHolder(@NonNull FriendsListItemViewHolder holder, int position) {
-        InviteData inviteData = inviteDataList.get(position);
+        InvitedToOther inviteData = inviteDataList.get(position);
         InviteUserData inviteUserData = inviteData.getInvite();
         Log.i(TAG, NAME + "onBindViewHolder called:  ");
         Log.i(TAG, NAME + inviteData.toString());
@@ -57,7 +57,6 @@ public class InvitedToRecyclerAdapter extends RecyclerView.Adapter<InvitedToRecy
             holder.tv_friendsitem_email.setText(email);
             holder.tv_firendsitem_firstname.setText(firstName);
         }
-
     }
 
     @Override

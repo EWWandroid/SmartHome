@@ -1,20 +1,18 @@
 
 package com.app.smarthome.retrofit.model.main;
 
-import java.util.List;
-
-import com.app.smarthome.retrofit.model.sub.InvitationList;
+import com.app.smarthome.retrofit.model.sub.CreateSwitchData;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class ModelInvitationListResponse {
+public class ModelCreateSwitchResponse {
 
     @SerializedName("status")
     @Expose
     private Boolean status;
     @SerializedName("data")
     @Expose
-    private List<InvitationList> data = null;
+    private CreateSwitchData data;
 
     public Boolean getStatus() {
         return status;
@@ -24,11 +22,11 @@ public class ModelInvitationListResponse {
         this.status = status;
     }
 
-    public List<InvitationList> getData() {
+    public CreateSwitchData getData() {
         return data;
     }
 
-    public void setData(List<InvitationList> data) {
+    public void setData(CreateSwitchData data) {
         this.data = data;
     }
 

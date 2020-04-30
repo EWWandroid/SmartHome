@@ -11,6 +11,7 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -43,6 +44,10 @@ import retrofit2.Response;
  */
 public class DevicesFragment extends Fragment implements Constants, FragmentRecyclerAdapter.ClickListener {
 
+    @Override
+    public void onLongClick(int switch_id) {
+    }
+
     private static final String NAME = DevicesFragment.class.getSimpleName();
     private static final String TAG = COMMON_TAG;
     private Context context;
@@ -50,6 +55,7 @@ public class DevicesFragment extends Fragment implements Constants, FragmentRecy
     private Gson gson;
     private ProgressBar pb_all;
     private ConstraintLayout cl_devicesfrag_root;
+    private SwipeRefreshLayout swipeRefreshLayout;
 
     private RecyclerView rv_fragment;
 
@@ -80,6 +86,8 @@ public class DevicesFragment extends Fragment implements Constants, FragmentRecy
 
         FloatingActionButton fab_adddevice = view.findViewById(R.id.fab_adddevice);
         fab_adddevice.setOnClickListener(v -> startActivity(new Intent(context, AddNewDeviceActivity.class)));
+        swipeRefreshLayout = view.findViewById(R.id.srl_devices);
+        swipeRefreshLayout.setOnRefreshListener(() -> callToListDevices());
     }
 
     private void callToListDevices() {
@@ -103,8 +111,8 @@ public class DevicesFragment extends Fragment implements Constants, FragmentRecy
                             ModelDeviceListResponse deviceListResponse = gson.fromJson(in, ModelDeviceListResponse.class);
                             Log.i(TAG, NAME + "onResponse: status is=" + deviceListResponse.getStatus());
                             if (deviceListResponse.getStatus()) {
-                                List<DevicesListData> data = deviceListResponse.getData();
-                                setAdapter(data);
+                                List<DevicesListData> deviceListResponseData = deviceListResponse.getData();
+                                setAdapter(deviceListResponseData);
                             } else {
                                 //invalid details
                                 Toast.makeText(context, "status is false", Toast.LENGTH_SHORT).show();
@@ -119,6 +127,8 @@ public class DevicesFragment extends Fragment implements Constants, FragmentRecy
                     Toast.makeText(context, "invalid response code", Toast.LENGTH_SHORT).show();
                 }
                 GlobalMethods.hideProgressBar(pb_all);
+                swipeRefreshLayout.setRefreshing(false);
+
             }
 
             @Override
@@ -126,6 +136,7 @@ public class DevicesFragment extends Fragment implements Constants, FragmentRecy
                 Log.i(TAG, NAME + "onFailure called");
                 Toast.makeText(context, "unable to make connection to server", Toast.LENGTH_SHORT).show();
                 GlobalMethods.hideProgressBar(pb_all);
+                swipeRefreshLayout.setRefreshing(false);
             }
         });
     }
@@ -138,7 +149,7 @@ public class DevicesFragment extends Fragment implements Constants, FragmentRecy
     }
 
     @Override
-    public void onClick(int position) {
+    public void onSingleClick(int position) {
 
     }
 

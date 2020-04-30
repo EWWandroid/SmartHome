@@ -21,7 +21,7 @@ public class SwitchAdapter extends RecyclerView.Adapter<SwitchAdapter.SwitchView
     @Override
     public SwitchViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(context);
-        View view = inflater.inflate(R.layout.recycler_switch_item_layout, parent, false);
+        View view = inflater.inflate(R.layout.recycler_switch, parent, false);
         return new SwitchViewHolder(view);
     }
 

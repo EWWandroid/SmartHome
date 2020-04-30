@@ -50,10 +50,10 @@ public class FragmentRecyclerAdapter extends RecyclerView.Adapter
         LayoutInflater inflater = LayoutInflater.from(context);
         View view = null;
         if (FRAGMENT_NAME == FRAGMENT_HOME) {
-            view = inflater.inflate(R.layout.recycler_switch_item_layout, parent, false);
+            view = inflater.inflate(R.layout.recycler_switch, parent, false);
             return new HomeFragmentViewHolder(view, clickListener);
         } else {
-            view = inflater.inflate(R.layout.recycler_device_item_layout, parent, false);
+            view = inflater.inflate(R.layout.recycler_device, parent, false);
             return new DeviceFragmentViewHolder(view, clickListener);
         }
     }
@@ -64,8 +64,30 @@ public class FragmentRecyclerAdapter extends RecyclerView.Adapter
         if (holder instanceof HomeFragmentViewHolder) {
             Switch switchItem = switches.get(position);
             String name = switchItem.getName();
-            String status = switchItem.getStatus();
+            int status = switchItem.getState();
             ((HomeFragmentViewHolder) holder).tv_recyclerswitch_switchtype.setText(name);
+
+            if (status >= 1) {
+                ((HomeFragmentViewHolder) holder).iv_state_track.setImageResource(R.drawable.status_track_up);
+                ((HomeFragmentViewHolder) holder).iv_state_thumb_down.setVisibility(View.INVISIBLE);
+                ((HomeFragmentViewHolder) holder).iv_state_thumb_up.setVisibility(View.VISIBLE);
+                ((HomeFragmentViewHolder) holder).tv_recyclerswitch_switchtype.setTextColor(context.getResources().getColor(R.color.white));
+                ImageViewCompat.setImageTintList(((HomeFragmentViewHolder) holder).iv_recycleritem_photo, ColorStateList.valueOf(ContextCompat.getColor(context, R.color.white)));
+                ((HomeFragmentViewHolder) holder).tv_recyclerswitch_name.setTextColor(context.getResources().getColor(R.color.white));
+                ((HomeFragmentViewHolder) holder).rl_switchitem_cardview.setBackgroundResource(R.drawable.custom_recycler_item_gradient);
+            }
+
+            if (status == 0) {
+                ((HomeFragmentViewHolder) holder).tv_recyclerswitch_switchtype.setText(name);
+                ((HomeFragmentViewHolder) holder).iv_state_thumb_down.setVisibility(View.VISIBLE);
+                ((HomeFragmentViewHolder) holder).iv_state_thumb_up.setVisibility(View.INVISIBLE);
+                ((HomeFragmentViewHolder) holder).iv_state_track.setImageResource(R.drawable.status_track_down);
+                ((HomeFragmentViewHolder) holder).tv_recyclerswitch_switchtype.setTextColor(context.getResources().getColor(R.color.black));
+                ImageViewCompat.setImageTintList(((HomeFragmentViewHolder) holder).iv_recycleritem_photo, ColorStateList.valueOf(ContextCompat.getColor(context, R.color.black)));
+                ((HomeFragmentViewHolder) holder).tv_recyclerswitch_name.setTextColor(context.getResources().getColor(R.color.black));
+                ((HomeFragmentViewHolder) holder).rl_switchitem_cardview.setBackgroundResource(R.drawable.custom_white_gradient_all_btn);
+            }
+
         }
 
         if (holder instanceof DeviceFragmentViewHolder) {
@@ -82,6 +104,7 @@ public class FragmentRecyclerAdapter extends RecyclerView.Adapter
                         ColorStateList.valueOf(ContextCompat.getColor(context, R.color.red)));
             }
         }
+
     }
 
     @Override
@@ -92,24 +115,36 @@ public class FragmentRecyclerAdapter extends RecyclerView.Adapter
         return devicesListData.size();
     }
 
-    class HomeFragmentViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+    class HomeFragmentViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener {
         ClickListener clickListener;
         RelativeLayout rl_switchitem_cardview;
-        ImageView iv_recycleritem_photo;
-        TextView tv_recyclerswitch_switchtype;
+        ImageView iv_recycleritem_photo, iv_state_thumb_down, iv_state_track, iv_state_thumb_up;
+        TextView tv_recyclerswitch_switchtype, tv_recyclerswitch_name;
 
-        public HomeFragmentViewHolder(@NonNull View itemView, ClickListener clickListener) {
+        HomeFragmentViewHolder(@NonNull View itemView, ClickListener clickListener) {
             super(itemView);
             this.clickListener = clickListener;
-            rl_switchitem_cardview = itemView.findViewById(R.id.rl_switchitem_cardview);
-            iv_recycleritem_photo = itemView.findViewById(R.id.iv_recycleritem_photo);
+            iv_state_thumb_down = itemView.findViewById(R.id.iv_state_thumb_down);
+            iv_state_track = itemView.findViewById(R.id.iv_state_track);
+            iv_state_thumb_up = itemView.findViewById(R.id.iv_state_thumb_up);
             tv_recyclerswitch_switchtype = itemView.findViewById(R.id.tv_recyclerswitch_switchtype);
+            iv_recycleritem_photo = itemView.findViewById(R.id.iv_recycleritem_photo);
+            tv_recyclerswitch_name = itemView.findViewById(R.id.tv_recyclerswitch_name);
+            rl_switchitem_cardview = itemView.findViewById(R.id.rl_switchitem_cardview);
+
             itemView.setOnClickListener(this);
+            itemView.setOnLongClickListener(this);
         }
 
         @Override
         public void onClick(View v) {
-            clickListener.onClick(getAdapterPosition());
+            clickListener.onSingleClick(getAdapterPosition());
+        }
+
+        @Override
+        public boolean onLongClick(View v) {
+            clickListener.onLongClick(switches.get(getAdapterPosition()).getId());
+            return true;
         }
     }
 
@@ -125,15 +160,19 @@ public class FragmentRecyclerAdapter extends RecyclerView.Adapter
             iv_recyclerdevice_status = itemView.findViewById(R.id.iv_recyclerdevice_status);
             this.clickListener = clickListener;
             itemView.setOnClickListener(this);
+            //itemView.setOnLongClickListener(this);
         }
 
         @Override
         public void onClick(View v) {
-            clickListener.onClick(getAdapterPosition());
+            clickListener.onSingleClick(getAdapterPosition());
         }
+
     }
 
     public interface ClickListener {
-        void onClick(int position);
+        void onSingleClick(int position);
+
+        void onLongClick(int switch_id);
     }
 }

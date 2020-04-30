@@ -12,6 +12,7 @@ import androidx.appcompat.widget.Toolbar;
 import com.app.smarthome.R;
 import com.app.smarthome.Session;
 import com.app.smarthome.databinding.CustomToolbarBinding;
+import com.app.smarthome.databinding.IndeterminantProgressBarBinding;
 import com.app.smarthome.retrofit.model.main.ModelLoginResponse;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.gson.Gson;
@@ -40,12 +41,20 @@ public class GlobalMethods {
         Snackbar.make(rootLayout, R.string.internet_not_available, Snackbar.LENGTH_SHORT).show();
     }
 
+    public static void showProgressBar(IndeterminantProgressBarBinding progressBarBinding) {
+        progressBarBinding.pbAll.setVisibility(View.VISIBLE);
+    }
+
     public static void showProgressBar(ProgressBar progressBar) {
         progressBar.setVisibility(View.VISIBLE);
     }
 
     public static void hideProgressBar(ProgressBar progressBar) {
         progressBar.setVisibility(View.INVISIBLE);
+    }
+
+    public static void hideProgressBar(IndeterminantProgressBarBinding progressBarBinding) {
+        progressBarBinding.pbAll.setVisibility(View.INVISIBLE);
     }
 
     public static void setToolbar(CustomToolbarBinding toolbar, int title, int drawableId) {

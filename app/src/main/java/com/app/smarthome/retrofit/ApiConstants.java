@@ -22,19 +22,27 @@ public interface ApiConstants {
     String ENDPOINT_GROUP = "groups";
     String CREATE_GROUP_PARAM_NAME = "name";
 
-    String ENDPOINT_SWITCH = "switches";
+    String ENDPOINT_SWITCHES = "switches";
+    String ENDPOINT_SHARED = "shared";
+    String ENDPOINT_SHARE = "share";
+    String ENDPOINT_UNSHARED = "unshared";
+    String PARAMS_SHARE_USER_ID = "user_id";
 
     String ENDPOINT_DEVICES = "devices";
     String PARAMS_CREATE_DEVICES_NAME = "name";
     String PARAMS_CREATE_DEVICES_MAC = "mac";
     String PARAMS_CREATE_DEVICES_UUID = "uuid";
+    String ENDPOINT_STATE = "state";
+    String STATE_PARAMS_STATE = "state";
 
     String ENDPOINT_SEARCH = "search/users";
     String QUERY_SEARCH_EMAIL = "email";
 
-    String ENDPOINT_INVITATION = "users/invitations";
-
-    String ENDPOINT_INVITED = "users/invited";
+    String SLASH = "/";
+    //    String ENDPOINT_INVITATION = "users/invitations";
+    String ENDPOINT_INVITATION = "invitations";
+    //    String ENDPOINT_INVITED = "users/invited";
+    String ENDPOINT_INVITED = "invited";
 
 
 }

@@ -1,10 +1,12 @@
 
 package com.app.smarthome.retrofit.model.sub;
 
+import androidx.annotation.NonNull;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class InvitationList {
+public class InvitedToOther {
 
     @SerializedName("id")
     @Expose
@@ -15,9 +17,9 @@ public class InvitationList {
     @SerializedName("created_at")
     @Expose
     private String createdAt;
-    @SerializedName("user")
+    @SerializedName("invite")
     @Expose
-    private InvitationDataUser user;
+    private InviteUserData invite;
 
     public Integer getId() {
         return id;
@@ -43,12 +45,11 @@ public class InvitationList {
         this.createdAt = createdAt;
     }
 
-    public InvitationDataUser getUser() {
-        return user;
+    public InviteUserData getInvite() {
+        return invite;
     }
 
-    public void setUser(InvitationDataUser user) {
-        this.user = user;
+    public void setInvite(InviteUserData invite) {
+        this.invite = invite;
     }
-
 }

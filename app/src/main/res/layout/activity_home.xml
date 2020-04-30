@@ -116,7 +116,6 @@
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toBottomOf="@+id/ib_nav_adddevice" />
 
-
                         <ImageButton
                             android:id="@+id/ib_nav_addnewdevice"
                             android:layout_width="24dp"

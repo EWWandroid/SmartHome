@@ -3,11 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:layout_margin="15dp">
+    android:layout_marginTop="@dimen/cardview_margin"
+    android:layout_marginEnd="@dimen/cardview_margin"
+    android:layout_marginStart="@dimen/cardview_margin">
 
     <androidx.cardview.widget.CardView
-        android:layout_width="170dp"
-        android:layout_height="200dp"
+        android:layout_width="@dimen/cardview_width"
+        android:layout_height="@dimen/cardview_height"
         app:cardCornerRadius="@dimen/cardview_corner_radius"
         app:cardUseCompatPadding="true"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -19,7 +21,7 @@
             android:id="@+id/rl_switchitem_cardview"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:padding="10dp">
+            android:padding="@dimen/_10sdp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -30,7 +32,7 @@
                     android:id="@+id/tv_recyclerswitch_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginTop="@dimen/_10sdp"
                     android:layout_weight="1"
                     android:text="@string/Switch"
                     android:textColor="@color/black" />
@@ -39,7 +41,7 @@
                     android:id="@+id/iv_recycleritem_photo"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="15dp"
+                    android:layout_marginTop="@dimen/_15sdp"
                     android:layout_weight="1"
                     android:src="@drawable/ic_fan" />
 
@@ -47,8 +49,8 @@
                     android:id="@+id/tv_recyclerswitch_switchtype"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="15dp"
-                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:layout_marginBottom="@dimen/_10sdp"
                     android:layout_weight="1"
                     android:fontFamily="@font/ubuntu_bold"
                     android:text="@string/switch_type"
@@ -61,7 +63,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentEnd="true"
-                android:layout_marginTop="15dp">
+                android:layout_marginTop="@dimen/_15sdp">
 
                 <ImageView
                     android:id="@+id/iv_state_track"
@@ -70,11 +72,20 @@
                     android:src="@drawable/status_track_down" />
 
                 <ImageView
-                    android:id="@+id/iv_state_thumb"
+                    android:id="@+id/iv_state_thumb_up"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="4.6dp"
-                    android:layout_marginTop="23.5dp"
+                    android:layout_marginStart="@dimen/_3sdp"
+                    android:layout_marginTop="@dimen/_3sdp"
+                    android:visibility="invisible"
+                    android:src="@drawable/status_thumb_white" />
+
+                <ImageView
+                    android:id="@+id/iv_state_thumb_down"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_3sdp"
+                    android:layout_marginTop="@dimen/_20sdp"
                     android:src="@drawable/status_thumb_red" />
 
             </RelativeLayout>

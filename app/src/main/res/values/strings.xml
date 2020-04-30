@@ -55,6 +55,21 @@
     <string name="field_cannot_be_empty">Field cannot be empty</string>
     <string name="pass_length_error">Password has to be more than 4 characters</string>
     <string name="email_not_valid">Email not valid</string>
+    <string name="invitation">Invitation</string>
+    <string name="share_this_switch_with">Share this switch with</string>
+    <string name="title_edit_switch">Edit Switch</string>
+    <string name="update_switch">Update</string>
+
+    <!--AddNewDevice-->
+    <string name="device_created">Device Created</string>
+    <string name="unable_to_add_new_device">Unable to add new device</string>
+    <string name="device_name_not_valid">Device name not valid</string>
+    <string name="code_not_valid">Code not valid</string>
+    <string name="mac_not_valid">Mac not valid</string>
+    <string name="create_device">Create Device</string>
+
+    <!--update device-->
+    <string name="update_device">Update switch</string>
 
 
 </resources>

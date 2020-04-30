@@ -47,8 +47,6 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-import static android.os.Environment.getExternalStoragePublicDirectory;
-
 public class RegisterActivity extends AppCompatActivity implements Constants {
 
     private static final String NAME = RegisterActivity.class.getSimpleName() + " ";
@@ -66,7 +64,6 @@ public class RegisterActivity extends AppCompatActivity implements Constants {
         registerBinding = ActivityRegisterBinding.inflate(getLayoutInflater());
         View view = registerBinding.getRoot();
         setContentView(view);
-
         init();
     }
 
@@ -80,6 +77,7 @@ public class RegisterActivity extends AppCompatActivity implements Constants {
                 GlobalMethods.showNetworkErrorSnackBar(registerBinding.clRegisterRoot);
             }
         });
+
         registerBinding.tvSignupSignin.setOnClickListener(v -> {
             startActivity(new Intent(RegisterActivity.this, LoginActivity.class));
         });

@@ -53,6 +53,9 @@ public class HomeFragment extends Fragment implements Constants {
 
     private Context context;
 
+    public HomeFragment() {
+    }
+
     public HomeFragment(Context context) {
         this.context = context;
     }

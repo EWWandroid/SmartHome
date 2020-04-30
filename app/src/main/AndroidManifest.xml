@@ -16,7 +16,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activities.InvitationActivity"></activity>
+        <activity android:name=".activities.UpdateDevice"></activity>
+        <activity
+            android:name=".activities.EditAndShareActivity"
+            android:exported="true"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".activities.InvitationActivity"
+            android:windowSoftInputMode="adjustPan" />
         <activity android:name=".activities.SettingsActivity" />
         <activity
             android:name=".activities.PeopleActivity"

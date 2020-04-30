@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cl_editandshare_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.EditAndShareActivity">
+
+    <include
+        android:id="@+id/pb"
+        layout="@layout/indeterminant_progress_bar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/custom_toolbar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_addnewdevicefrag_root"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/fragment_container_top_margin"
+        android:background="@color/light_grey"
+        android:padding="@dimen/default_content_padding"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar">
+
+        <EditText
+            android:id="@+id/et_editandshare_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/field_all_rounded"
+            android:elevation="1dp"
+            android:ems="10"
+            android:fontFamily="@font/ubuntu_regular"
+            android:hint="@string/Switch_name"
+            android:inputType="text"
+            android:padding="@dimen/edittext_padding"
+            android:textSize="@dimen/default_medium_size"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Spinner
+            android:id="@+id/sp_newswitch_device"
+            style="@style/spinner_style"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/spinner_height"
+            android:background="@drawable/field_all_rounded"
+            android:elevation="@dimen/_1sdp"
+            app:layout_constraintTop_toBottomOf="@+id/et_editandshare_name" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:elevation="@dimen/_1sdp"
+            android:src="@drawable/ic_expand_more_black_24dp"
+            app:layout_constraintBottom_toBottomOf="@+id/sp_newswitch_device"
+            app:layout_constraintEnd_toEndOf="@+id/sp_newswitch_device"
+            app:layout_constraintTop_toTopOf="@+id/sp_newswitch_device" />
+
+
+        <Spinner
+            android:id="@+id/sp_newswitch_pin"
+            style="@style/spinner_style"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/spinner_height"
+            android:background="@drawable/field_all_rounded"
+            android:elevation="@dimen/_1sdp"
+            app:layout_constraintTop_toBottomOf="@+id/sp_newswitch_device" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:elevation="@dimen/_1sdp"
+            android:src="@drawable/ic_expand_more_black_24dp"
+            app:layout_constraintBottom_toBottomOf="@+id/sp_newswitch_pin"
+            app:layout_constraintEnd_toEndOf="@+id/sp_newswitch_pin"
+            app:layout_constraintTop_toTopOf="@+id/sp_newswitch_pin" />
+
+        <Spinner
+            android:id="@+id/sp_newswitch_type"
+            style="@style/spinner_style"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/spinner_height"
+            android:background="@drawable/field_all_rounded"
+            android:elevation="@dimen/_1sdp"
+            app:layout_constraintTop_toBottomOf="@+id/sp_newswitch_pin" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:elevation="@dimen/_1sdp"
+            android:src="@drawable/ic_expand_more_black_24dp"
+            app:layout_constraintBottom_toBottomOf="@+id/sp_newswitch_type"
+            app:layout_constraintEnd_toEndOf="@+id/sp_newswitch_type"
+            app:layout_constraintTop_toTopOf="@+id/sp_newswitch_type" />
+
+        <Button
+            android:id="@+id/btn_editandshare_update"
+            android:layout_width="@dimen/add_button_width"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:background="@drawable/custom_blue_gradient_all_btn"
+            android:fontFamily="@font/ubuntu_bold"
+            android:text="@string/update_switch"
+            android:textColor="@color/white"
+            android:textSize="@dimen/default_small_size"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/sp_newswitch_type" />
+
+        <TextView
+            android:id="@+id/tv_editandshare_sharewith"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:fontFamily="@font/ubuntu_bold"
+            android:text="@string/share_this_switch_with"
+            android:textColor="@color/black"
+            android:textSize="@dimen/default_medium_size"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_editandshare_update" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_editandshare"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/recycler_margin_top"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_editandshare_sharewith" />
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -71,5 +71,6 @@ dependencies {
     //for search view
     implementation 'com.github.mancj:MaterialSearchBar:0.8.5'
 
-
+    /*swipe refresh layout*/
+    implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.0.0"
 }

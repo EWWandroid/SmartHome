@@ -4,7 +4,6 @@ import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -14,7 +13,6 @@ import android.widget.Toast;
 
 import com.app.smarthome.R;
 import com.app.smarthome.Session;
-import com.app.smarthome.databinding.CustomToolbarBinding;
 import com.app.smarthome.fragments.DevicesFragment;
 import com.app.smarthome.fragments.HomeFragment;
 import com.app.smarthome.util.Constants;
@@ -34,7 +32,7 @@ public class HomeActivity extends AppCompatActivity implements Constants, View.O
         View view = binding.getRoot();
         setContentView(view);
 
-        GlobalMethods.setToolbar(binding.toolbar, R.string.home, R.drawable.drawer_hamburger);
+        GlobalMethods.setToolbar(binding.toolbar, R.string.home, R.drawable.ic_drawer_hamburger);
         setNavigationDrawer();
         onDrawerItemSelected();
 
